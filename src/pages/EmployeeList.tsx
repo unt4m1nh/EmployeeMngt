@@ -172,7 +172,7 @@ const EmployeeList = () => {
   if (loading) {
     return (
       <div className={styles.employeeList}>
-        <h2 className={styles.title}>Employee Directory</h2>
+        <h2 className={styles.title}>List of Employee</h2>
         <div className={styles.loading}>
           <div className={styles.spinner}></div>
           <p>Loading employees...</p>
