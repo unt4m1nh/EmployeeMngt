@@ -3,6 +3,7 @@
   max-width: 100%;
   margin: 0 auto;
   animation: fadeIn 0.6s ease-in;
+  padding: 0 1rem; /* Add horizontal padding for mobile */
 }
 
 @keyframes fadeIn {
@@ -17,17 +18,20 @@
 }
 
 .heroSection {
+  display: flex;
+  flex-direction: column;
   text-align: center;
-  padding: 2rem 1rem;
+  align-items: center;
+  padding: 1.5rem 1rem; /* Reduce padding for smaller screens */
   background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
   border-radius: 8px;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem; /* Reduce margin for mobile */
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .title {
-  font-size: 1.8rem;
+  font-size: 1.5rem; /* Smaller font for mobile */
   background: linear-gradient(135deg, #2c3e50, #3498db);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -35,34 +39,45 @@
   margin-bottom: 1rem;
   font-weight: 700;
   line-height: 1.3;
+  /* Ensure readability on mobile */
+  word-wrap: break-word;
+  hyphens: auto;
 }
 
 .subtitle {
-  font-size: 1rem;
+  font-size: 0.9rem; /* Smaller font for mobile */
   color: #6c757d;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem; /* Reduce margin for mobile */
   line-height: 1.6;
+  /* Better text handling on mobile */
+  word-wrap: break-word;
+  max-width: 100%;
 }
 
 .ctaButton {
   display: inline-block;
   background: linear-gradient(135deg, #3498db, #2980b9);
   color: white;
-  padding: 1rem 2rem;
+  padding: 0.875rem 1.5rem; /* Slightly smaller padding for mobile */
   text-decoration: none;
   border-radius: 8px;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 0.95rem; /* Slightly smaller font for mobile */
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
   position: relative;
   overflow: hidden;
   width: 100%;
-  max-width: 280px;
+  max-width: 260px; /* Slightly smaller max-width */
+  /* Improve touch target size */
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .ctaButton::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
@@ -86,16 +101,22 @@
   box-shadow: 0 6px 25px rgba(52, 152, 219, 0.4);
 }
 
+/* Improve touch interaction on mobile */
+.ctaButton:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(52, 152, 219, 0.3);
+}
+
 .featuresGrid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
+  gap: 1rem; /* Smaller gap for mobile */
   padding: 0;
 }
 
 .featureCard {
   background: white;
-  padding: 1.5rem;
+  padding: 1.25rem; /* Smaller padding for mobile */
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(0, 0, 0, 0.05);
@@ -105,7 +126,7 @@
 }
 
 .featureCard::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -125,23 +146,79 @@
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
 }
 
+/* Improve touch interaction on mobile */
+.featureCard:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
 .featureTitle {
   color: #2c3e50;
-  margin-bottom: 0.75rem;
-  font-size: 1.1rem;
+  margin-bottom: 0.5rem; /* Smaller margin for mobile */
+  font-size: 1rem; /* Smaller font for mobile */
   font-weight: 600;
+  word-wrap: break-word;
 }
 
 .featureDescription {
   color: #6c757d;
   line-height: 1.6;
-  font-size: 0.9rem;
+  font-size: 0.85rem; /* Smaller font for mobile */
+  word-wrap: break-word;
+}
+
+/* Small mobile devices (up to 480px) */
+@media (max-width: 480px) {
+  .homePage {
+    padding: 0 0.75rem;
+  }
+
+  .heroSection {
+    padding: 1.25rem 0.75rem;
+    margin-bottom: 1.25rem;
+    border-radius: 6px;
+  }
+
+  .title {
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .subtitle {
+    font-size: 0.85rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .ctaButton {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.9rem;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .featuresGrid {
+    gap: 0.875rem;
+  }
+
+  .featureCard {
+    padding: 1rem;
+  }
+
+  .featureTitle {
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .featureDescription {
+    font-size: 0.8rem;
+  }
 }
 
 /* Tablet styles */
 @media (min-width: 768px) {
   .homePage {
     max-width: 900px;
+    padding: 0 2rem;
   }
 
   .heroSection {
@@ -165,6 +242,7 @@
     font-size: 1.05rem;
     padding: 1.125rem 2.25rem;
     width: auto;
+    max-width: 300px;
   }
 
   .featuresGrid {
